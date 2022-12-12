@@ -1,6 +1,9 @@
 const Search = () => {
   return ( 
-    <div>Search Component</div>
+    <div>
+      <input type="text" placeholder="Search city name..."/>
+      <button>Search</button>
+    </div>
    );
 }
  

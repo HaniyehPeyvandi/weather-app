@@ -1,6 +1,10 @@
+import Search from "../Search/Search";
+
 const WeatherApp = () => {
   return ( 
-    <div>Weather App</div>
+    <div>
+      <Search/>
+    </div>
    );
 }
  

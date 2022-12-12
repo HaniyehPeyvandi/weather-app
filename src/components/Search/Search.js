@@ -1,8 +1,10 @@
+import styles from './Search.module.css';
+
 const Search = () => {
   return ( 
-    <div>
-      <input type="text" placeholder="Search city name..."/>
-      <button>Search</button>
+    <div className={styles.searchContainer}>
+      <input type="text" placeholder="Enter city name..." className={styles.searchInput}/>
+      <button className={styles.searchBtn}>Search</button>
     </div>
    );
 }

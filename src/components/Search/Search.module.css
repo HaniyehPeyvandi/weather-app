@@ -1,0 +1,35 @@
+.searchContainer{
+  margin: 35px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput{
+  border: none;
+  outline: none;
+  border-radius: 6px 0 0 6px;
+  padding: 10px 8px;
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+}
+
+.searchInput:focus{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.searchBtn{
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 0 6px 6px 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background-color: #47AF90;
+  color: #fff;
+  cursor: pointer;
+}
+
+.searchBtn:hover{
+  background-color: #2C9B79;
+}

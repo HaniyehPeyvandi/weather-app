@@ -1,0 +1,91 @@
+.weatherContainer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.44);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.1px);
+  -webkit-backdrop-filter: blur(9.1px);
+}
+
+.weatherIcon {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.weatherIcon i {
+  color: rgb(10, 2, 34);
+  font-weight: 700;
+  font-size: 5.5rem;
+}
+
+.weatherDesc {
+  background-color: rgb(10, 2, 34);
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.weatherDesc .degree {
+  display: flex;
+  align-items: center;
+  padding: 40px 30px;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.weatherDesc .weatherInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 30px;
+}
+
+.weatherDesc .weatherInfo .weatherCondition {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.weatherDesc .time {
+  background-color: #47af90;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 30px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.weatherDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.weatherDetails .weatherItem {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.weatherDetails .weatherItem i {
+  margin-right: 20px;
+  font-size: 1.5rem;
+  color: #118071;
+}
+
+
+/* @media screen and (max-width:992px) {
+  .weatherDesc{
+    flex-wrap: nowrap;
+  }
+  .weatherDesc .time{
+    width: 100%;
+  }
+  .weatherDetails {
+    flex-direction: column;
+  }
+} */

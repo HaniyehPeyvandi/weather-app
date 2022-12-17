@@ -1,11 +1,13 @@
 import styles from "./WeatherDetails.module.css";
 
-const WeatherDetails = () => {
+const WeatherDetails = ({weatherInfo}) => {
   var today = new Date();
   var date =
     today.getMonth() + 1 + "/" + today.getDate() + "/" + today.getFullYear();
   var time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    console.log(weatherInfo);
 
   return (
     <div className={styles.weatherContainer}>
@@ -58,7 +60,7 @@ const WeatherDetails = () => {
             <i className="wi wi-strong-wind"></i>
           </div>
           <div>
-            <p>1.54 km/h</p>
+            <p>1.54</p>
             <p>Speed</p>
           </div>
         </div>

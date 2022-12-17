@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Search.module.css";
 
-const Search = () => {
+const Search = ({ getWeatherInfo }) => {
   const [cityName, setCityName] = useState("tehran");
+
+  useEffect(() => {
+    getWeatherInfo(cityName);
+  }, []);
 
   return (
     <div className={styles.searchContainer}>
@@ -13,7 +17,12 @@ const Search = () => {
         value={cityName}
         onChange={(e) => setCityName(e.target.value)}
       />
-      <button className={styles.searchBtn}>Search</button>
+      <button
+        className={styles.searchBtn}
+        onClick={() => getWeatherInfo(cityName)}
+      >
+        Search
+      </button>
     </div>
   );
 };

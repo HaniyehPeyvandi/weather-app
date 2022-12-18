@@ -1,13 +1,17 @@
 import styles from "./WeatherDetails.module.css";
 
-const WeatherDetails = ({weatherInfo}) => {
-  var today = new Date();
-  var date =
-    today.getMonth() + 1 + "/" + today.getDate() + "/" + today.getFullYear();
-  var time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+const WeatherDetails = ({ weatherInfo }) => {
+  console.log(weatherInfo);
 
-    console.log(weatherInfo);
+  const { temp, humidity } = weatherInfo.main;
+  const { name: city } = weatherInfo;
+  const { country, sunrise, sunset } = weatherInfo.sys;
+  const { main: condition } = weatherInfo.weather[0];
+  const { speed } = weatherInfo.wind;
+
+  let today = new Date();
+  let sunriseDate = new Date(sunrise*1000);
+  let sunsetDate = new Date(sunset*1000);
 
   return (
     <div className={styles.weatherContainer}>
@@ -16,15 +20,17 @@ const WeatherDetails = ({weatherInfo}) => {
       </div>
       <div className={styles.weatherDesc}>
         <div className={styles.degree}>
-          <p>32.05&deg;</p>
+          <p>{Math.round(temp)}&deg;</p>
         </div>
         <div className={styles.weatherInfo}>
-          <p className={styles.weatherCondition}>HAZE</p>
-          <p>Tehran, IRAN</p>
+          <p className={styles.weatherCondition}>{condition}</p>
+          <p>
+            {city}, {country}
+          </p>
         </div>
         <div className={styles.time}>
-          <p>{date}</p>
-          <p>{time}</p>
+          <p>{today.toLocaleDateString()}</p>
+          <p>{today.toLocaleTimeString()}</p>
         </div>
       </div>
       <div className={styles.weatherDetails}>
@@ -33,7 +39,7 @@ const WeatherDetails = ({weatherInfo}) => {
             <i className="wi wi-sunrise"></i>
           </div>
           <div>
-            <p>6:12 AM</p>
+            <p>{sunriseDate.toLocaleTimeString()}</p>
             <p>Sunrise</p>
           </div>
         </div>
@@ -42,7 +48,7 @@ const WeatherDetails = ({weatherInfo}) => {
             <i className="wi wi-sunset"></i>
           </div>
           <div>
-            <p>18:12 PM</p>
+            <p>{sunsetDate.toLocaleTimeString()}</p>
             <p>Sunset</p>
           </div>
         </div>
@@ -51,7 +57,7 @@ const WeatherDetails = ({weatherInfo}) => {
             <i className="wi wi-humidity"></i>
           </div>
           <div>
-            <p>66</p>
+            <p>{humidity}</p>
             <p>Humidity</p>
           </div>
         </div>
@@ -60,7 +66,7 @@ const WeatherDetails = ({weatherInfo}) => {
             <i className="wi wi-strong-wind"></i>
           </div>
           <div>
-            <p>1.54</p>
+            <p>{speed} m/s</p>
             <p>Speed</p>
           </div>
         </div>

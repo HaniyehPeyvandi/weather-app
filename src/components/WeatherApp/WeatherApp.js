@@ -18,7 +18,7 @@ const WeatherApp = () => {
 
       //make API call to get weather information of the city
       const response2 = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       );
       const result2 = await response2.json();
       setWeatherInfo(result2);
@@ -31,7 +31,7 @@ const WeatherApp = () => {
   return (
     <div className={styles.container}>
       <Search getWeatherInfo={getWeatherInfo} />
-      <WeatherDetails weatherInfo={weatherInfo}/>
+      {weatherInfo && <WeatherDetails weatherInfo={weatherInfo}/>}
     </div>
   );
 };

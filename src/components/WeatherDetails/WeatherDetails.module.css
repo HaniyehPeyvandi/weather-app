@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 }
 
 .weatherDesc .degree {
@@ -77,15 +78,23 @@
   color: #118071;
 }
 
-
-/* @media screen and (max-width:992px) {
-  .weatherDesc{
-    flex-wrap: nowrap;
+@media screen and (max-width: 992px) {
+  .weatherDesc {
+    flex-wrap: wrap;
   }
-  .weatherDesc .time{
+  .weatherDesc .degree {
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .weatherDesc .weatherInfo {
+    width: 100%;
+  }
+  .weatherDesc .time {
     width: 100%;
   }
   .weatherDetails {
     flex-direction: column;
   }
-} */
+}

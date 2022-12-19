@@ -10,8 +10,8 @@ const WeatherDetails = ({ weatherInfo }) => {
   const { speed } = weatherInfo.wind;
 
   let today = new Date();
-  let sunriseDate = new Date(sunrise*1000);
-  let sunsetDate = new Date(sunset*1000);
+  let sunriseDate = new Date(sunrise * 1000);
+  let sunsetDate = new Date(sunset * 1000);
 
   return (
     <div className={styles.weatherContainer}>

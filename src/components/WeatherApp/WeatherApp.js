@@ -4,9 +4,15 @@ import WeatherDetails from "../WeatherDetails/WeatherDetails";
 import styles from "./WeatherApp.module.css";
 
 const WeatherApp = () => {
-  const [weatherInfo,setWeatherInfo] = useState();
+  const [weatherInfo,setWeatherInfo] = useState(null);
+  const [loading,setLoading] = useState(false);
+  const [error,setError] = useState(null);
 
   const getWeatherInfo = async (cityName) => {
+    setLoading(true);
+    setError(null);
+    setWeatherInfo(null);
+
     try {
       //make API call to get latitude and longitude of the city
       const response = await fetch(
@@ -22,15 +28,20 @@ const WeatherApp = () => {
       );
       const result2 = await response2.json();
       setWeatherInfo(result2);
-
+      setLoading(false);
+      setError(null);
     } catch (error) {
-      console.log(error);
+      setError("Something went wrong");
+      setLoading(false);
+      setWeatherInfo(null);
     }
   };
 
   return (
     <div className={styles.container}>
       <Search getWeatherInfo={getWeatherInfo} />
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
       {weatherInfo && <WeatherDetails weatherInfo={weatherInfo}/>}
     </div>
   );

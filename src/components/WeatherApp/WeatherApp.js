@@ -2,6 +2,7 @@ import { useState } from "react";
 import Search from "../Search/Search";
 import WeatherDetails from "../WeatherDetails/WeatherDetails";
 import styles from "./WeatherApp.module.css";
+import { FaRegSadCry } from "react-icons/fa";
 
 const WeatherApp = () => {
   const [weatherInfo,setWeatherInfo] = useState(null);
@@ -41,7 +42,7 @@ const WeatherApp = () => {
     <div className={styles.container}>
       <Search getWeatherInfo={getWeatherInfo} />
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {error && <div className={styles.error}><span><FaRegSadCry/></span><p>{error}</p></div>}
       {weatherInfo && <WeatherDetails weatherInfo={weatherInfo}/>}
     </div>
   );

@@ -6,17 +6,21 @@ const WeatherDetails = ({ weatherInfo }) => {
   const { temp, humidity } = weatherInfo.main;
   const { name: city } = weatherInfo;
   const { country, sunrise, sunset } = weatherInfo.sys;
-  const { main: condition } = weatherInfo.weather[0];
+  const { main: condition,id } = weatherInfo.weather[0];
   const { speed } = weatherInfo.wind;
 
   let today = new Date();
   let sunriseDate = new Date(sunrise * 1000);
   let sunsetDate = new Date(sunset * 1000);
 
+  console.log(sunriseDate)
+  console.log(sunsetDate)
+  
+
   return (
     <div className={styles.weatherContainer}>
       <div className={styles.weatherIcon}>
-        <i className="wi wi-day-cloudy"></i>
+        <i className={`wi wi-owm-${id}`}></i>
       </div>
       <div className={styles.weatherDesc}>
         <div className={styles.degree}>

@@ -5,9 +5,9 @@ import styles from "./WeatherApp.module.css";
 import { FaRegSadCry } from "react-icons/fa";
 
 const WeatherApp = () => {
-  const [weatherInfo,setWeatherInfo] = useState(null);
-  const [loading,setLoading] = useState(false);
-  const [error,setError] = useState(null);
+  const [weatherInfo, setWeatherInfo] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getWeatherInfo = async (cityName) => {
     setLoading(true);
@@ -41,9 +41,20 @@ const WeatherApp = () => {
   return (
     <div className={styles.container}>
       <Search getWeatherInfo={getWeatherInfo} />
-      {loading && <p>Loading...</p>}
-      {error && <div className={styles.error}><span><FaRegSadCry/></span><p>{error}</p></div>}
-      {weatherInfo && <WeatherDetails weatherInfo={weatherInfo}/>}
+      {loading && (
+        <div className={styles.spinnerContainer}>
+          <div className={styles.spinner}></div>
+        </div>
+      )}
+      {error && (
+        <div className={styles.error}>
+          <span>
+            <FaRegSadCry />
+          </span>
+          <p>{error}</p>
+        </div>
+      )}
+      {weatherInfo && <WeatherDetails weatherInfo={weatherInfo} />}
     </div>
   );
 };

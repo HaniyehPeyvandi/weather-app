@@ -1,12 +1,10 @@
 import styles from "./WeatherDetails.module.css";
 
 const WeatherDetails = ({ weatherInfo }) => {
-  console.log(weatherInfo);
-
   const { temp, humidity } = weatherInfo.main;
   const { name: city } = weatherInfo;
   const { country, sunrise, sunset } = weatherInfo.sys;
-  const { main: condition, id:conditionId } = weatherInfo.weather[0];
+  const { main: condition, id: conditionId } = weatherInfo.weather[0];
   const { speed } = weatherInfo.wind;
 
   let today = new Date();

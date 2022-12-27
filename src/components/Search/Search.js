@@ -11,13 +11,23 @@ const Search = ({ getWeatherInfo }) => {
     getWeatherInfo(cityName);
   }, []);
 
-  const clickHandler = (cityName) => {
+  const clickHandler = () => {
     if (!cityName || cityName === "") {
       toast.error("Please enter city name", { autoClose: 3000 });
       return;
     }
     getWeatherInfo(cityName);
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      if (!cityName || cityName === "") {
+        toast.error("Please enter city name", { autoClose: 3000 });
+        return;
+      }
+      getWeatherInfo(cityName);
+    }
+  }
 
   return (
     <div className={styles.searchContainer}>
@@ -28,10 +38,11 @@ const Search = ({ getWeatherInfo }) => {
         ref={inputRef}
         value={cityName}
         onChange={(e) => setCityName(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button
         className={styles.searchBtn}
-        onClick={() => clickHandler(cityName)}
+        onClick={clickHandler}
       >
         Search
       </button>

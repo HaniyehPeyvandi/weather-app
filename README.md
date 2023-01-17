@@ -11,13 +11,13 @@ This project is a weather app. In this app, user can search a city name and see 
 
 ## Screenshots
 
-![1.PNG](screenshots/1.png)
+![1.PNG](screenshots/1.PNG)
 
-![2.PNG](screenshots/2.png)
+![2.PNG](screenshots/2.PNG)
 
-![3.PNG](screenshots/3.png)
+![3.PNG](screenshots/3.PNG)
 
-![4.PNG](screenshots/4.png)
+![4.PNG](screenshots/4.PNG)
 
 
 ## Getting Started with Create React App
